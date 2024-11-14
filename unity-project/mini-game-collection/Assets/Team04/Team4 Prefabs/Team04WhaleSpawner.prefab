@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7847858213481150385}
   - component: {fileID: 6677590820743852632}
   m_Layer: 0
-  m_Name: Whale Spawner
+  m_Name: Team04WhaleSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

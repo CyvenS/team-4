@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2363209315567461478}
   - component: {fileID: 328202660182312957}
   m_Layer: 0
-  m_Name: Screen1-Whale
+  m_Name: Team04Whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,8 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0d5c5c04eb2e49908f66b83b49f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whaleSpeed: 2.5
+  whaleSpeed: 5
   startingPos: []
+  whale: {fileID: 0}
+  timeUntilAction: 10
+  timeUntilDespawn: 10
+  isDestroyed: 0
 --- !u!320 &4086611853622677544
 PlayableDirector:
   m_ObjectHideFlags: 0

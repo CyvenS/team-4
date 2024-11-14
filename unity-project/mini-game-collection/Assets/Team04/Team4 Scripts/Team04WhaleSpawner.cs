@@ -8,6 +8,7 @@ namespace MiniGameCollection.Games2024.Team04
     public class Team04WhaleSpawner : MonoBehaviour
     {
         public GameObject whale; //Variable to get the whale game object
+        
 
         [SerializeField]
         private float timeUntilSpawn = 10f; //Amount of time until whale spawns
@@ -57,6 +58,11 @@ namespace MiniGameCollection.Games2024.Team04
                 isActivated = false;
                 timeUntilSpawn = 10;
             }            
+        }
+
+        public void WarningSignal()
+        {
+            
         }
     }
 }
