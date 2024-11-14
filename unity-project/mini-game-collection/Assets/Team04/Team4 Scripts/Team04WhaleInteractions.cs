@@ -21,12 +21,13 @@ namespace MiniGameCollection.Games2024.Team04
         private float timeUntilAction = 10f; //The time it will take until the whale moves
 
         [SerializeField]
-        private float timeUntilDespawn = 10f; //The time it will take until the whale moves again
+        private float timeUntilDespawn = 10f; //The time it will take until the whale despawns
+
+        public bool isDestroyed = false; //Check if the whale has been destroyed in scene
 
         // Start is called before the first frame update
         void Start()
         {
-            
 
             //Set the different starting vector positions for the whale
             startingPos = new Vector2[]
@@ -53,24 +54,11 @@ namespace MiniGameCollection.Games2024.Team04
         // Update is called once per frame
         void Update()
         {
-            timeUntilAction -= Time.deltaTime;
-
-            if (timeUntilAction <= 0)
-            {
-                timeUntilDespawn -= Time.deltaTime;
-                Movement();
-
-                if (timeUntilDespawn<= 0)
-                {
-                    Destroy(gameObject);
-                    timeUntilAction = 10.0f;
-                    timeUntilDespawn = 10.0f;
-                }
-            }  
-            
+            Timer();           
 
         }
 
+        //When this function is triggered, move the whale towards the target position
         void Movement()
         {
             currentPos = transform.position;
@@ -78,10 +66,27 @@ namespace MiniGameCollection.Games2024.Team04
             transform.position += (Vector3)direction * whaleSpeed;
         }
 
-        public void SpawnWhale()
+        void Timer()
         {
+            timeUntilAction -= Time.deltaTime;
 
+            if (timeUntilAction <= 0)
+            {
+                timeUntilDespawn -= Time.deltaTime;
+                Movement();
+
+                if (timeUntilDespawn <= 0)
+                {
+                    isDestroyed = true;
+                    timeUntilAction = 10.0f;
+                    timeUntilDespawn = 10.0f;
+                    Destroy(gameObject);                  
+                    
+                }
+            }
         }
+
+        
 
     }
 

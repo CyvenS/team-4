@@ -10,36 +10,39 @@ namespace MiniGameCollection.Games2024.Team04
         public GameObject whale; //Variable to get the whale game object
 
         [SerializeField]
-        private float minTimer; //Setting the minimum time to spawn 
+        private float timeUntilSpawn = 10f; //Amount of time until whale spawns
 
-        [SerializeField]
-        private float maxTimer; //Setting the maximum time to spawn 
+        private bool isActivated = true; //Check if the spawn manager is activated
 
-        private float timeUntilSpawn; //Amount of time until whale spawns
+        WhaleInteractions whaleControls; //Call the whale interactions script
+
 
         // Start is called before the first frame update
         void Start()
         {
-
+            whaleControls = FindAnyObjectByType<WhaleInteractions>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if(isActivated)
+            {
+                SpawnObject();
+            }            
+
+        }
+
+        public void SpawnObject()
+        {
             timeUntilSpawn -= Time.deltaTime;
 
             if (timeUntilSpawn <= 0)
             {
-                GameObject spawnWhale = Instantiate(whale, transform.position, Quaternion.identity);
-                spawnWhale.GetComponent<WhaleInteractions>();
-                SetSpawnTime();
-            }                       
-
-        }
-
-        private void SetSpawnTime()
-        {
-            timeUntilSpawn = Random.Range(minTimer, maxTimer); //Randomize the time until spawn
+                Instantiate(whale, transform.position, Quaternion.identity);
+                isActivated = false;
+                timeUntilSpawn = 10;
+            }
         }
     }
 }
