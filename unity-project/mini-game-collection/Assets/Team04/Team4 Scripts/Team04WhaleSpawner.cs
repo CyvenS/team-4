@@ -16,6 +16,9 @@ namespace MiniGameCollection.Games2024.Team04
 
         WhaleInteractions whaleControls; //Call the whale interactions script
 
+        [SerializeField]
+        private float timeUntilDespawn = 20f; //The time it will take until the whale despawns
+
 
         // Start is called before the first frame update
         void Start()
@@ -29,7 +32,18 @@ namespace MiniGameCollection.Games2024.Team04
             if(isActivated)
             {
                 SpawnObject();
-            }            
+            }
+            if (!isActivated)
+            {
+                timeUntilDespawn -= Time.deltaTime;
+
+                if (timeUntilDespawn <= 0)
+                {
+                    timeUntilDespawn = 10.0f;
+                    isActivated = true;
+                    Destroy(whale.gameObject);
+                }
+            }
 
         }
 
@@ -38,11 +52,11 @@ namespace MiniGameCollection.Games2024.Team04
             timeUntilSpawn -= Time.deltaTime;
 
             if (timeUntilSpawn <= 0)
-            {
+            {                
                 Instantiate(whale, transform.position, Quaternion.identity);
                 isActivated = false;
                 timeUntilSpawn = 10;
-            }
+            }            
         }
     }
 }

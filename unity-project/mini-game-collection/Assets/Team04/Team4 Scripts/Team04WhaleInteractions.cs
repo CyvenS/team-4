@@ -6,7 +6,7 @@ namespace MiniGameCollection.Games2024.Team04
 {
     public class WhaleInteractions : MonoBehaviour
     {
-        public float whaleSpeed = 1.0f;
+        public float whaleSpeed = 5f;
         public Vector2[] startingPos; //Variable to hold multiple starting positions of the whale
         private Vector2[] targetPos = new Vector2[] {new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
         new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f) }; //Variable to set the target positions
