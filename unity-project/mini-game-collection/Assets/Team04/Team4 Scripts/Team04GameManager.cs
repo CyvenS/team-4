@@ -15,4 +15,9 @@ public class Team04GameManager : MonoBehaviour
     {
         
     }
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        Application.targetFrameRate = 60; // DO NOT CHANGE THIS PLEASE PLEASE PLEASE
+    }
 }
