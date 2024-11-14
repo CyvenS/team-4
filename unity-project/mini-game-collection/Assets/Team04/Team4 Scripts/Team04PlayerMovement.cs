@@ -39,7 +39,7 @@ public class MovementScript : MonoBehaviour
 
         if (speedCurrent > 0)
         {
-            speedCurrent -= (float)0.1; // drag
+            speedCurrent -= (float)0.3; // drag
         }
         else if (speedCurrent < 0)
         {
@@ -48,7 +48,7 @@ public class MovementScript : MonoBehaviour
 
         if (speedCurrentP2 > 0)
         {
-            speedCurrentP2 -= (float)0.1; // drag
+            speedCurrentP2 -= (float)0.3; // drag
         }
         else if (speedCurrentP2 < 0)
         {
@@ -91,19 +91,19 @@ public class MovementScript : MonoBehaviour
         }
 
         //TEMPORARY ROTATION CODE
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            Player1.transform.eulerAngles = new Vector3 (0,0, Player1.transform.eulerAngles.z + 10);
+            Player1.transform.eulerAngles = new Vector3 (0,0, Player1.transform.eulerAngles.z + 2);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            Player1.transform.eulerAngles = new Vector3(0,0, Player1.transform.eulerAngles.z - 10);
+            Player1.transform.eulerAngles = new Vector3(0,0, Player1.transform.eulerAngles.z - 2);
         }
 
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            speedCurrent += 2;
+            speedCurrent += (float)0.05;
             if (speedCurrent <= speedMax)
             {
                 speedCurrent = speedMax;
@@ -112,20 +112,20 @@ public class MovementScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKey(KeyCode.J))
         {
-            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z + 10);
+            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z + 2);
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKey(KeyCode.L))
         {
-            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z - 10);
+            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z - 2);
         }
 
 
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            speedCurrentP2 += 2;
+            speedCurrentP2 += (float)0.05;
             if (speedCurrentP2 <= speedMax)
             {
                 speedCurrentP2 = speedMax;
