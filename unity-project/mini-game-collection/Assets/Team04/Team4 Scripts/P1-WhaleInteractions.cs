@@ -34,25 +34,19 @@ namespace MiniGameCollection.Games2024.Team04
                 int randomIndex = Random.Range(0, startingPos.Length);
 
                 transform.position = startingPos[randomIndex];
+
+                targetPosition = targetPos[randomIndex];
             }
-            //if (targetPos.Length > 0)
-            //{
-            //    int randomTargetIndex = Random.Range(0, targetPos.Length);
-            //    targetPosition = targetPos[randomTargetIndex];
-            //}
+
+            
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (startingPos.Length == 0) { targetPosition = targetPos[0]; }
-            if (startingPos.Length == 1) { targetPosition = targetPos[1]; }
-            if (startingPos.Length == 2) { targetPosition = targetPos[2]; }
-            if (startingPos.Length == 3) { targetPosition = targetPos[3]; }
-
             Vector2 currentPos = transform.position;
             Vector2 direction = (targetPosition - currentPos).normalized;
-
             transform.position += (Vector3)direction * whaleSpeed * Time.deltaTime;
         }
 
