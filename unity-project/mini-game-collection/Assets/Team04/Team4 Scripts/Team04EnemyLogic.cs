@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameBehaviour : MonoBehaviour
+public class Team04EnemyLogic : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,10 +14,5 @@ public class GameBehaviour : MonoBehaviour
     void Update()
     {
         
-    }
-    void Awake()
-    {
-        QualitySettings.vSyncCount = 0;  // VSync must be disabled
-        Application.targetFrameRate = 60; // DO NOT CHANGE THIS PLEASE PLEASE PLEASE
     }
 }
