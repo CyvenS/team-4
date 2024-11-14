@@ -7,18 +7,26 @@ namespace MiniGameCollection.Games2024.Team04
     public class WhaleInteractions : MonoBehaviour
     {
         public float whaleSpeed = 1.0f;
-        public Vector2[] startingPos;
+        public Vector2[] startingPos; //Variable to hold multiple starting positions of the whale
         private Vector2[] targetPos = new Vector2[] {new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-        new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f) };
+        new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f) }; //Variable to set the target positions
 
-        private Rigidbody rb;
+        [SerializeField]
+        private GameObject whale;
 
         private Vector2 targetPosition;
+        private Vector2 currentPos;
+
+        [SerializeField]
+        private float timeUntilAction = 10f; //The time it will take until the whale moves
+
+        [SerializeField]
+        private float timeUntilDespawn = 10f; //The time it will take until the whale moves again
 
         // Start is called before the first frame update
         void Start()
         {
-            rb = GetComponent<Rigidbody>(); //Get the rigidbody component for the game object
+            
 
             //Set the different starting vector positions for the whale
             startingPos = new Vector2[]
@@ -45,22 +53,34 @@ namespace MiniGameCollection.Games2024.Team04
         // Update is called once per frame
         void Update()
         {
-            Vector2 currentPos = transform.position;
-            Vector2 direction = (targetPosition - currentPos).normalized;
-            transform.position += (Vector3)direction * whaleSpeed;
+            timeUntilAction -= Time.deltaTime;
+
+            if (timeUntilAction <= 0)
+            {
+                timeUntilDespawn -= Time.deltaTime;
+                Movement();
+
+                if (timeUntilDespawn<= 0)
+                {
+                    Destroy(gameObject);
+                    timeUntilAction = 10.0f;
+                    timeUntilDespawn = 10.0f;
+                }
+            }  
+            
+
         }
 
         void Movement()
         {
-            // Use the ArcadeInput system for movement
-            float xInput = ArcadeInput.Player1.AxisX; // Get horizontal input for Player 1
-            float yInput = ArcadeInput.Player1.AxisY; // Get vertical input for Player 1
+            currentPos = transform.position;
+            Vector2 direction = (targetPosition - currentPos).normalized;
+            transform.position += (Vector3)direction * whaleSpeed;
+        }
 
-            // Calculate the direction based on input
-            Vector2 direction = new Vector2(xInput, yInput).normalized;
+        public void SpawnWhale()
+        {
 
-            // Move the whale in the specified direction
-            transform.position += (Vector3)direction * whaleSpeed * Time.deltaTime;
         }
 
     }
