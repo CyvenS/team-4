@@ -13,6 +13,7 @@ namespace MiniGameCollection.Games2024.Team04
         private Vector2[] targetPos; //Variable to set the target positions
 
         Team04WhaleSpawner whaleSpawn; //Reference to spawner
+        //public GameObject player;
 
         private Vector2 targetPosition;
         private Vector2 currentPos;
@@ -30,7 +31,7 @@ namespace MiniGameCollection.Games2024.Team04
         {
             //Find any object that has the whale spawner script
             whaleSpawn = FindAnyObjectByType<Team04WhaleSpawner>();
-
+            //player = GameObject.Find("Player1");
 
             if(whaleSpawn != null )
             {
@@ -64,8 +65,10 @@ namespace MiniGameCollection.Games2024.Team04
         //When this function is triggered, move the whale towards the target position
         void Movement()
         {
+            //Tracking the position of the whale when it spawns to the target position
             currentPos = transform.position;
             Vector2 direction = (targetPosition - currentPos).normalized;
+            //Vector2 direction = ((Vector2)player.transform.position - currentPos).normalized;
             transform.position += (Vector3)direction * whaleSpeed;
         }
 

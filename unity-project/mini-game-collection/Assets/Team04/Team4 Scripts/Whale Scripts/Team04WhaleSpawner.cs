@@ -11,8 +11,7 @@ namespace MiniGameCollection.Games2024.Team04
 
         public int playerIDSelect = 0;
 
-        [SerializeField]
-        private float timeUntilSpawn = 10f; //Amount of time until whale spawns
+        public float timeUntilSpawn = 10f; //Amount of time until whale spawns
 
         private bool isActivated = true; //Check if the spawn manager is activated
 
