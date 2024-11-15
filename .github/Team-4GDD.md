@@ -14,3 +14,6 @@ We envision for our game design to be a split-screen design as to prevent the tw
 There will be only a couple enemy types, one being a whale that covers most of the screen, almost as a level hazard that will harm both enemies and players. The other general enemy type is the shark as a natural predator (enemy) to shrimps. In terms of any additional enemy types or powerups, these are the stretch goals. 
 
 # Used Assets
+
+## Tutorials
+- https://www.youtube.com/watch?v=LPRSHWffUA8 (Used this with a combination of some AI coding)
