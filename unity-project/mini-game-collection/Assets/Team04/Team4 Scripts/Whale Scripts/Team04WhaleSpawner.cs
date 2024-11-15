@@ -57,11 +57,7 @@ namespace MiniGameCollection.Games2024.Team04
                 timeUntilSpawn = 10;
             }            
         }
-
-        public void WarningSignal()
-        {
-            
-        }
+        
     }
 }
 
