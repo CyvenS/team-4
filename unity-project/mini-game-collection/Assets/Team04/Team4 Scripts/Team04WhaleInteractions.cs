@@ -28,7 +28,10 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
+            //Find any object that has the whale spawner script
             whaleSpawn = FindAnyObjectByType<Team04WhaleSpawner>();
+
+
             if(whaleSpawn != null )
             {
                 playerID = whaleSpawn.playerIDSelect;
@@ -36,8 +39,10 @@ namespace MiniGameCollection.Games2024.Team04
 
             SetupPosition();            
 
+            //Setting the random positions for the starting positions
             if(startingPos.Length > 0)
             {
+                //This is all to make sure that the starting position has a connected target position
                 int randomIndex = Random.Range(0, startingPos.Length);
 
                 transform.position = startingPos[randomIndex];
@@ -140,6 +145,17 @@ namespace MiniGameCollection.Games2024.Team04
             //    new Vector2(1782f, -134f), new Vector2(-130.5f, -61.6f)
             //    };
             //}
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            //If the whale hits any game object in its path
+            bool hitsObject = other.gameObject;
+
+            if (hitsObject)
+            {
+                Destroy(other.gameObject); //Destroy the other game objects
+            }
         }
 
     }
