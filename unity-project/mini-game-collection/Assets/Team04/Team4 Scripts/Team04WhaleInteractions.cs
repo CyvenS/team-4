@@ -7,12 +7,12 @@ namespace MiniGameCollection.Games2024.Team04
     public class WhaleInteractions : MonoBehaviour
     {
         public float whaleSpeed = 5f;
-        public int playerID = 0; //Get the player ID 
+
+        [SerializeField] private int playerID = 0; //Get the player ID 
         public Vector2[] startingPos; //Variable to hold multiple starting positions of the whale
         private Vector2[] targetPos; //Variable to set the target positions
 
-        [SerializeField]
-        private GameObject whale;
+        Team04WhaleSpawner whaleSpawn; //Reference to spawner
 
         private Vector2 targetPosition;
         private Vector2 currentPos;
@@ -28,24 +28,13 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            if(playerID == 1)
+            whaleSpawn = FindAnyObjectByType<Team04WhaleSpawner>();
+            if(whaleSpawn != null )
             {
-                //Set the different starting vector positions for the whale
-                startingPos = new Vector2[]
-                {
-                     new Vector2(-129.44f, 35f),
-                    new Vector2(38.4f, 134.2f),
-                    new Vector2(135f, 134.2f),
-                    new Vector2(135f, -61.6f)
-                };
-
-                targetPos = new Vector2[]
-                {
-                new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-                new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
-                };
+                playerID = whaleSpawn.playerIDSelect;
             }
-            
+
+            SetupPosition();            
 
             if(startingPos.Length > 0)
             {
@@ -75,6 +64,7 @@ namespace MiniGameCollection.Games2024.Team04
             transform.position += (Vector3)direction * whaleSpeed;
         }
 
+        //Timer to control movement and despawning
         void Timer()
         {
             timeUntilAction -= Time.deltaTime;
@@ -95,7 +85,62 @@ namespace MiniGameCollection.Games2024.Team04
             }
         }
 
-        
+        //Setup the starting and target positions based on PlayerID
+        private void SetupPosition()
+        {
+            //Set the different starting vector positions for the whale
+            startingPos = new Vector2[]
+            {
+                     new Vector2(-129.44f, 35f),
+                    new Vector2(38.4f, 134.2f),
+                    new Vector2(135f, 134.2f),
+                    new Vector2(135f, -61.6f)
+            };
+
+            targetPos = new Vector2[]
+            {
+                new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
+                new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
+            };
+
+            //*Don't need positions based on playerID but just in case.*
+            //if (playerID == 1)
+            //{
+            //    //Set the different starting vector positions for the whale
+            //    startingPos = new Vector2[]
+            //    {
+            //         new Vector2(-129.44f, 35f),
+            //        new Vector2(38.4f, 134.2f),
+            //        new Vector2(135f, 134.2f),
+            //        new Vector2(135f, -61.6f)
+            //    };
+
+            //    targetPos = new Vector2[]
+            //    {
+            //    new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
+            //    new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
+            //    };
+            //}
+
+
+            //if (playerID == 2)
+            //{
+            //    //Set the different starting vector positions for the whale
+            //    startingPos = new Vector2[]
+            //    {
+            //         new Vector2(1764.15f, 35f),
+            //        new Vector2(1954f, 134.2f),
+            //        new Vector2(2054f, 134.2f),
+            //        new Vector2(2054f, -61.6f)
+            //    };
+
+            //    targetPos = new Vector2[]
+            //    {
+            //    new Vector2(2054f, 35f), new Vector2(1954f, -126f),
+            //    new Vector2(1782f, -134f), new Vector2(-130.5f, -61.6f)
+            //    };
+            //}
+        }
 
     }
 

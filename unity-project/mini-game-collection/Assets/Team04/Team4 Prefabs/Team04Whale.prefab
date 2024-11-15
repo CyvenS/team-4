@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whaleSpeed: 5
+  playerID: 0
   startingPos: []
   whale: {fileID: 0}
   timeUntilAction: 10

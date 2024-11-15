@@ -8,14 +8,13 @@ namespace MiniGameCollection.Games2024.Team04
     public class Team04WhaleSpawner : MonoBehaviour
     {
         public GameObject whale; //Variable to get the whale game object
-        
+
+        public int playerIDSelect = 0;
 
         [SerializeField]
         private float timeUntilSpawn = 10f; //Amount of time until whale spawns
 
         private bool isActivated = true; //Check if the spawn manager is activated
-
-        WhaleInteractions whaleControls; //Call the whale interactions script
 
         [SerializeField]
         private float timeUntilDespawn = 20f; //The time it will take until the whale despawns
@@ -24,7 +23,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            whaleControls = FindAnyObjectByType<WhaleInteractions>();
+
         }
 
         // Update is called once per frame
@@ -40,9 +39,8 @@ namespace MiniGameCollection.Games2024.Team04
 
                 if (timeUntilDespawn <= 0)
                 {
-                    timeUntilDespawn = 10.0f;
+                    timeUntilDespawn = 20.0f;
                     isActivated = true;
-                    Destroy(whale.gameObject);
                 }
             }
 

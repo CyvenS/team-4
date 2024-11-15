@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whale: {fileID: 5791186886882317328, guid: b0bd0d3fe12ed9247a0b7e1ab779d339, type: 3}
-  minTimer: 0
-  maxTimer: 0
+  playerIDSelect: 1
   timeUntilSpawn: 10
+  timeUntilDespawn: 20
