@@ -296,85 +296,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217390198}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &255487840
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 393635381064109276, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_Name
-      value: Team04WhaleSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 393635381064109276, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677590820743852632, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: warning
-      value: 
-      objectReference: {fileID: 1057381778276506661, guid: 9dc385bbb2759d44e94587b4319580db,
-        type: 3}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847858213481150385, guid: 24c2e108281e9a444852a9705964850f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24c2e108281e9a444852a9705964850f, type: 3}
 --- !u!1001 &291618627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1085,7 +1006,7 @@ Transform:
   - {fileID: 217390199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1093945857
+--- !u!1001 &1094284536
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1093,26 +1014,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4360707818518513458, guid: b0bd0d3fe12ed9247a0b7e1ab779d339,
-        type: 3}
-      propertyPath: warningIcons.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4360707818518513458, guid: b0bd0d3fe12ed9247a0b7e1ab779d339,
-        type: 3}
-      propertyPath: warningIcons.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4360707818518513458, guid: b0bd0d3fe12ed9247a0b7e1ab779d339,
-        type: 3}
-      propertyPath: warningIcons.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4360707818518513458, guid: b0bd0d3fe12ed9247a0b7e1ab779d339,
-        type: 3}
-      propertyPath: warningIcons.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5791186886882317328, guid: b0bd0d3fe12ed9247a0b7e1ab779d339,
         type: 3}
       propertyPath: m_Name
@@ -1420,6 +1321,5 @@ SceneRoots:
   - {fileID: 5539696}
   - {fileID: 2119275806}
   - {fileID: 848407923}
-  - {fileID: 255487840}
-  - {fileID: 1093945857}
   - {fileID: 291618627}
+  - {fileID: 1094284536}
