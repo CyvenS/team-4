@@ -10,10 +10,7 @@ namespace MiniGameCollection.Games2024.Team04
 
         //[SerializeField] private int playerID = 0; //Get the player ID 
         public Vector2[] startingPos; //Variable to hold multiple starting positions of the whale
-        private Vector2[] targetPos; //Variable to set the target positions
-
-        Team04WhaleSpawner whaleSpawn; //Reference to spawner
-        //public GameObject player;
+        [SerializeField] private Vector2[] targetPos; //Variable to set the target positions
 
         private Vector2 targetPosition;
         private Vector2 currentPos;
@@ -29,8 +26,6 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            //Find any object that has the whale spawner script
-            whaleSpawn = FindAnyObjectByType<Team04WhaleSpawner>();
             //player = GameObject.Find("Player1");
 
             SetupPosition();            
