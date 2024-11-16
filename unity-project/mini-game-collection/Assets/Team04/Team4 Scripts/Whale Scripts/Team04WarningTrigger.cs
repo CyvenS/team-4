@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,14 +8,10 @@ namespace MiniGameCollection.Games2024.Team04
 {
     public class Team04WarningTrigger : MonoBehaviour
     {
-        [SerializeField]private GameObject background; //Get the background game object
-        [SerializeField] private GameObject warningIcon; //Get the warning icon 
         [SerializeField] private float triggerTimer = 20f; //Time until the game object activates
 
-        public Vector2 iconPos = new Vector2(100, 100); //The position of the icon
-        public Vector2 iconSize = new Vector2(100, 50); //The size of the icon
-        public Vector2 backPos; //Position of the backkground
-        public Vector2 backSize = new Vector2(200, 100); //Size of the background
+        //Reference the warning trigger game objects 
+        [SerializeField] private GameObject[] warningTriggers;
 
         public Color warningColor = Color.red; //Color of the icon background
 
@@ -23,31 +20,52 @@ namespace MiniGameCollection.Games2024.Team04
 
         // Start is called before the first frame update
         void Start()
-        {            
-            warningIcon = GetComponent<GameObject>();
-            warningIcon.gameObject.SetActive(false);
-            background = GetComponent<GameObject>();    
-            backPos = iconPos; //Make sure that the back object follows the icon position
-
-            whaleSpawn = FindAnyObjectByType<Team04WhaleSpawner>();
-            whale = FindAnyObjectByType<WhaleInteractions>();
+        {
+            whale = FindObjectOfType<WhaleInteractions>();
+ 
+            //Set the triggers off as the scene starts
+            foreach (var trigger in warningTriggers)
+            {
+                if(trigger != null)
+                {
+                    trigger.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogWarning("A trigger reference is missing!");
+                }
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
-            triggerTimer -= Time.deltaTime;
-            if(triggerTimer <= 0)
-            {
-                warningIcon.gameObject.SetActive(true);
-                triggerTimer = 20;
-            }
+            IconTriggers();
         }
 
-        //
-        void IconProperties()
+        void IconTriggers()
         {
+            //Deactivate the triggers initially
+            foreach (var trigger in warningTriggers)
+            {
+                if(trigger != null)
+                {
+                    trigger.SetActive(false);
+                }
+            }
 
+            int index = whale.startingPos.Length;
+            switch (index)
+            {
+                case 0:
+                    warningTriggers[0].SetActive(true); break;
+                case 1:
+                    warningTriggers[1].SetActive(true); break;
+                case 2:
+                    warningTriggers[2].SetActive(true); break;
+                case 3:
+                    warningTriggers[3].SetActive(true); break;
+            }
         }
 
         //Draw the warning icon background on the UI canvas
