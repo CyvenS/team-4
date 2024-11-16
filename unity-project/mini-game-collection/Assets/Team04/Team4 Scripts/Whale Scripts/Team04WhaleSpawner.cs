@@ -9,8 +9,6 @@ namespace MiniGameCollection.Games2024.Team04
     {
         public GameObject whale; //Variable to get the whale game object
 
-        public int playerIDSelect = 0;
-
         public float timeUntilSpawn = 10f; //Amount of time until whale spawns
 
         private bool isActivated = true; //Check if the spawn manager is activated
@@ -51,7 +49,7 @@ namespace MiniGameCollection.Games2024.Team04
 
             if (timeUntilSpawn <= 0)
             {                
-                Instantiate(whale, transform.position, Quaternion.identity);
+                Instantiate(whale, transform.position, Quaternion.Euler(0, 0, 180));
                 isActivated = false;
                 timeUntilSpawn = 10;
             }            

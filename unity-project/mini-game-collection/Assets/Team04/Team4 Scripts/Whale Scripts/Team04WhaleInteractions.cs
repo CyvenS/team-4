@@ -8,61 +8,52 @@ namespace MiniGameCollection.Games2024.Team04
     {
         public float whaleSpeed = 5f;
 
-        //[SerializeField] private int playerID = 0; //Get the player ID 
-        public Vector2[] startingPos; //Variable to hold multiple starting positions of the whale
-        [SerializeField] private Vector2[] targetPos; //Variable to set the target positions
+        public Vector2[] startingPos; // Variable to hold multiple starting positions of the whale
+        [SerializeField] private Vector2[] targetPos; // Variable to set the target positions
 
         private Vector2 targetPosition;
         private Vector2 currentPos;
 
-        [SerializeField]
-        private float timeUntilAction = 10f; //The time it will take until the whale moves
+        [SerializeField] private float timeUntilAction = 10f; // Time until the whale moves
+        [SerializeField] private float timeUntilDespawn = 10f; // Time until the whale despawns
+        public bool isDestroyed = false; // Check if the whale has been destroyed in the scene
 
-        [SerializeField]
-        private float timeUntilDespawn = 10f; //The time it will take until the whale despawns
-
-        public bool isDestroyed = false; //Check if the whale has been destroyed in scene
+        [SerializeField] private GameObject[] warningIcons; // Icons for trigger warnings
+        [SerializeField] private Vector2[] warningIconPositions; // Positions of the warning icons
 
         // Start is called before the first frame update
         void Start()
         {
-            //player = GameObject.Find("Player1");
+            SetupPosition();
 
-            SetupPosition();            
-
-            //Setting the random positions for the starting positions
-            if(startingPos.Length > 0)
+            if (startingPos.Length > 0)
             {
-                //This is all to make sure that the starting position has a connected target position
+                // This ensures the starting position has a connected target position
                 int randomIndex = Random.Range(0, startingPos.Length);
 
                 transform.position = startingPos[randomIndex];
-
                 targetPosition = targetPos[randomIndex];
-            }
 
-            
-            
+                // Trigger the warning for the spawn position
+                TriggerWarning(randomIndex);
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
-            Timer();           
-
+            Timer();
         }
 
-        //When this function is triggered, move the whale towards the target position
+        // Movement logic for the whale
         void Movement()
         {
-            //Tracking the position of the whale when it spawns to the target position
             currentPos = transform.position;
             Vector2 direction = (targetPosition - currentPos).normalized;
-            //Vector2 direction = ((Vector2)player.transform.position - currentPos).normalized;
             transform.position += (Vector3)direction * whaleSpeed;
         }
 
-        //Timer to control movement and despawning
+        // Timer for controlling movement and despawning
         void Timer()
         {
             timeUntilAction -= Time.deltaTime;
@@ -77,81 +68,66 @@ namespace MiniGameCollection.Games2024.Team04
                     isDestroyed = true;
                     timeUntilAction = 10.0f;
                     timeUntilDespawn = 10.0f;
-                    Destroy(gameObject);                  
-                    
+
+                    // Randomize new position
+                    int randomIndex = Random.Range(0, startingPos.Length);
+
+                    transform.position = startingPos[randomIndex];
+                    targetPosition = targetPos[randomIndex];
+
+                    // Trigger the warning for the new spawn position
+                    TriggerWarning(randomIndex);
                 }
             }
         }
 
-        //Setup the starting and target positions based on PlayerID
+        // Setup the starting and target positions
         private void SetupPosition()
         {
-            //Set the different starting vector positions for the whale
             startingPos = new Vector2[]
             {
-                     new Vector2(-129.44f, 35f),
-                    new Vector2(38.4f, 134.2f),
-                    new Vector2(135f, 134.2f),
-                    new Vector2(135f, -61.6f)
+            new Vector2(-129.44f, 35f),
+            new Vector2(38.4f, 134.2f),
+            new Vector2(135f, 134.2f),
+            new Vector2(135f, -61.6f)
             };
 
             targetPos = new Vector2[]
             {
-                new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-                new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
+            new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
+            new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
             };
+        }
 
-            //*Don't need positions based on playerID but just in case.*
-            //if (playerID == 1)
-            //{
-            //    //Set the different starting vector positions for the whale
-            //    startingPos = new Vector2[]
-            //    {
-            //         new Vector2(-129.44f, 35f),
-            //        new Vector2(38.4f, 134.2f),
-            //        new Vector2(135f, 134.2f),
-            //        new Vector2(135f, -61.6f)
-            //    };
+        // Triggers a warning icon at the specific position
+        private void TriggerWarning(int index)
+        {
+            // Disable all warning icons
+            foreach (var icon in warningIcons)
+            {
+                icon.SetActive(false);
+            }
 
-            //    targetPos = new Vector2[]
-            //    {
-            //    new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-            //    new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
-            //    };
-            //}
-
-
-            //if (playerID == 2)
-            //{
-            //    //Set the different starting vector positions for the whale
-            //    startingPos = new Vector2[]
-            //    {
-            //         new Vector2(1764.15f, 35f),
-            //        new Vector2(1954f, 134.2f),
-            //        new Vector2(2054f, 134.2f),
-            //        new Vector2(2054f, -61.6f)
-            //    };
-
-            //    targetPos = new Vector2[]
-            //    {
-            //    new Vector2(2054f, 35f), new Vector2(1954f, -126f),
-            //    new Vector2(1782f, -134f), new Vector2(-130.5f, -61.6f)
-            //    };
-            //}
+            // Activate the correct warning icon and position it
+            if (index >= 0 && index < warningIcons.Length)
+            {
+                warningIcons[index].SetActive(true);
+                warningIcons[index].transform.position = warningIconPositions[index];
+            }
+            else
+            {
+                Debug.LogWarning("Invalid index for warning icon.");
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            //If the whale hits any game object in its path
-            bool hitsObject = other.gameObject;
-
-            if (hitsObject)
+            // If the whale hits any game object in its path
+            if (other != null)
             {
-                Destroy(other.gameObject); //Destroy the other game objects
+                Destroy(other.gameObject); // Destroy the other game objects
             }
+
         }
-
     }
-
-
 }

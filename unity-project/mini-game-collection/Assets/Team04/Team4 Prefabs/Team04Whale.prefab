@@ -122,11 +122,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whaleSpeed: 5
-  playerID: 0
   startingPos: []
+  targetPos: []
   timeUntilAction: 10
   timeUntilDespawn: 10
   isDestroyed: 0
+  warningIcons:
+  - {fileID: 1057381778276506661, guid: 9dc385bbb2759d44e94587b4319580db, type: 3}
+  - {fileID: 1057381778276506661, guid: 9dc385bbb2759d44e94587b4319580db, type: 3}
+  - {fileID: 1057381778276506661, guid: 9dc385bbb2759d44e94587b4319580db, type: 3}
+  - {fileID: 1057381778276506661, guid: 9dc385bbb2759d44e94587b4319580db, type: 3}
+  warningIconPositions:
+  - {x: 0, y: 36}
+  - {x: 38.4, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: -61.6}
 --- !u!320 &4086611853622677544
 PlayableDirector:
   m_ObjectHideFlags: 0
