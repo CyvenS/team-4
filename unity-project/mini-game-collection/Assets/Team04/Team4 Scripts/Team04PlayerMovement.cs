@@ -1,27 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static MiniGameCollection.ArcadeInput;
 
 public class MovementScript : MonoBehaviour
 {
-    public GameObject Player1;
-    public GameObject Player2;
-    
+    public GameObject Player;
     public int stickCurrent;
     public int stickLast;
     public int rotateCurrent;
-    public float rotateSpeed;
+    public int rotateSpeed;
+
     public float speedCurrent;
+    public float speedMax;
 
-    public int stickCurrentP2;
-    public int stickLastP2;
-    public int rotateCurrentP2;
-    public int rotateSpeedP2;
-    public float speedCurrentP2;
-
-    public float speedMax = 10; 
-
+    public int xpos;
+    public int ypos;
+    public int targetxpos;
+    public int targetypos;
 
 
     // Start is called before the first frame update
@@ -33,27 +28,10 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
         stickLast = stickCurrent; //stores the input from the previous frame
         stickCurrent = 0;//REPLACE THIS LINE WITH HOWEVER THE JOYSTICK INPUT WORKS
 
-        if (speedCurrent > 0)
-        {
-            speedCurrent -= (float)0.3; // drag
-        }
-        else if (speedCurrent < 0)
-        {
-            speedCurrent = 0;
-        }
-
-        if (speedCurrentP2 > 0)
-        {
-            speedCurrentP2 -= (float)0.3; // drag
-        }
-        else if (speedCurrentP2 < 0)
-        {
-            speedCurrentP2 = 0;
-        }
 
 
         //handle rotating
@@ -91,46 +69,16 @@ public class MovementScript : MonoBehaviour
         }
 
         //TEMPORARY ROTATION CODE
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            Player1.transform.eulerAngles = new Vector3 (0,0, Player1.transform.eulerAngles.z + 2);
+            Player.transform.eulerAngles = new Vector3 (0,0, Player.transform.eulerAngles.z + 10);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            Player1.transform.eulerAngles = new Vector3(0,0, Player1.transform.eulerAngles.z - 2);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            speedCurrent += (float)0.05;
-            if (speedCurrent <= speedMax)
-            {
-                speedCurrent = speedMax;
-            }
-            Player1.GetComponent<Rigidbody2D>().velocity = Player1.transform.up * speedCurrent;
-
-        }
-
-        if (Input.GetKey(KeyCode.J))
-        {
-            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z + 2);
-        }
-        if (Input.GetKey(KeyCode.L))
-        {
-            Player2.transform.eulerAngles = new Vector3(0, 0, Player2.transform.eulerAngles.z - 2);
+            Player.transform.eulerAngles = new Vector3(0, 0, Player.transform.eulerAngles.z - 10);
         }
 
 
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            speedCurrentP2 += (float)0.05;
-            if (speedCurrentP2 <= speedMax)
-            {
-                speedCurrentP2 = speedMax;
-            }
-            Player2.GetComponent<Rigidbody2D>().velocity = Player2.transform.up * speedCurrentP2;
-        }
     }
 }

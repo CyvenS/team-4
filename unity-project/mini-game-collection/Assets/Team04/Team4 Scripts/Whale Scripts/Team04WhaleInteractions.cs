@@ -24,7 +24,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            //SetupPosition();
+            SetupPosition();
 
             if (startingPos.Length > 0)
             {
@@ -50,7 +50,7 @@ namespace MiniGameCollection.Games2024.Team04
         {
             currentPos = transform.position;
             Vector2 direction = (targetPosition - currentPos).normalized;
-            transform.position += (Vector3)direction * whaleSpeed * Time.deltaTime;
+            transform.position += (Vector3)direction * whaleSpeed;
         }
 
         // Timer for controlling movement and despawning
@@ -84,7 +84,6 @@ namespace MiniGameCollection.Games2024.Team04
         // Setup the starting and target positions
         private void SetupPosition()
         {
-            //THis was if we needed to setup positions manually
             startingPos = new Vector2[]
             {
             new Vector2(-129.44f, 35f),
@@ -121,15 +120,14 @@ namespace MiniGameCollection.Games2024.Team04
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter(Collider other)
         {
             // If the whale hits any game object in its path
-            if (collision != null)
+            if (other != null)
             {
-                if (collision.gameObject == GameObject.Find("Team04Player1"))
-
-                    Destroy(collision.gameObject); // Destroy the other game objects
+                Destroy(other.gameObject); // Destroy the other game objects
             }
+
         }
     }
 }
