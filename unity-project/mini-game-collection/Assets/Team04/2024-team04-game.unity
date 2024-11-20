@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1faa4f27d37a01149bed5d2d349e2b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 1551494113}
-  Player2: {fileID: 828408411}
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   stickCurrent: 0
   stickLast: 0
   rotateCurrent: 0
@@ -701,12 +701,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &828408411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4932664474091817082, guid: 2e706a77b27da8b4cb701c9237be862b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6924787745405266656}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &880061669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,12 +1572,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1551494113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5721691692654071826, guid: 9126e00f72bc1724389fd7bf9397fea4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6406608995193704018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1722986940
 GameObject:
   m_ObjectHideFlags: 0
