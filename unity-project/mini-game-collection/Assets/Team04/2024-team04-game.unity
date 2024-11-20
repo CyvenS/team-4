@@ -1839,6 +1839,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Team04Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 8520663015736129201, guid: 2e706a77b27da8b4cb701c9237be862b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1902,10 +1907,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4724940540535020750, guid: b5efdd722a379e64992a548cbc298ac3,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6236612179376452795, guid: b5efdd722a379e64992a548cbc298ac3,
         type: 3}
       propertyPath: m_Name
       value: Team04Whale_
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236612179376452795, guid: b5efdd722a379e64992a548cbc298ac3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8086502224591276605, guid: b5efdd722a379e64992a548cbc298ac3,
         type: 3}
