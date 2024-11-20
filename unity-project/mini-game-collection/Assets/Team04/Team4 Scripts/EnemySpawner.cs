@@ -11,23 +11,48 @@ namespace MiniGameCollection.Games2024.Team04
 
 
         [SerializeField]
-        private float enemySpawnerInterval = 2f;
+        private float enemySpawnerInterval;
+
+        [SerializeField] private float minTimer = 2f;
+
+        [SerializeField] private float maxTimer = 10f;
 
         // Start is called before the first frame update
         void Start()
         {
-            StartCoroutine(spawnEnemy(enemySpawnerInterval, enemySpawnerPrefab));
-           
+            SetSpawnTime();
+            //StartCoroutine(spawnEnemy(enemySpawnerInterval, enemySpawnerPrefab));           
         }
 
-        // Update is called once per frame
-       private IEnumerator spawnEnemy( float interval, GameObject enemy)
+        void Update()
         {
-            yield return new WaitForSeconds(interval);
-            GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(3f, 1), Random.Range(-3f, 1), 0), Quaternion.identity);
-            StartCoroutine(spawnEnemy(interval, enemy));
+            EnemyBehaviour();
         }
-        
+
+        //// Update is called once per frame
+        //private IEnumerator spawnEnemy( float interval, GameObject enemy)
+        //{
+        //    yield return new WaitForSeconds(interval);
+        //    GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(3f, 1), Random.Range(-3f, 1), 0), Quaternion.identity);
+        //    StartCoroutine(spawnEnemy(interval, enemy));
+        //}
+
+        void EnemyBehaviour()
+        {
+            //After 
+            enemySpawnerInterval -= Time.deltaTime;
+
+            if(enemySpawnerInterval <= 0)
+            {
+                Instantiate(enemySpawnerPrefab, transform.position, Quaternion.identity);
+                SetSpawnTime();
+            }
+        }
+
+       void SetSpawnTime()
+        {
+            enemySpawnerInterval = Random.Range(minTimer, maxTimer); //Randomize the enemy spawn intervals
+        } 
 
         
      }
