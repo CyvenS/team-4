@@ -84,6 +84,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Setup the starting and target positions
         private void SetupPosition()
         {
+            //THis was if we needed to setup positions manually
             startingPos = new Vector2[]
             {
             new Vector2(-129.44f, 35f),
@@ -120,14 +121,15 @@ namespace MiniGameCollection.Games2024.Team04
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             // If the whale hits any game object in its path
-            if (other != null)
+            if (collision != null)
             {
-                Destroy(other.gameObject); // Destroy the other game objects
-            }
+                if (collision.gameObject == GameObject.Find("Team04Player1"))
 
+                    Destroy(collision.gameObject); // Destroy the other game objects
+            }
         }
     }
 }

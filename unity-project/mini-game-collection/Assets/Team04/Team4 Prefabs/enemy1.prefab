@@ -124,6 +124,7 @@ MonoBehaviour:
   player1: {fileID: 5721691692654071826, guid: 9126e00f72bc1724389fd7bf9397fea4, type: 3}
   player2: {fileID: 4932664474091817082, guid: 2e706a77b27da8b4cb701c9237be862b, type: 3}
   enemySpeed: 5
+  PlayerID: 0
 --- !u!58 &3791080613554739042
 CircleCollider2D:
   m_ObjectHideFlags: 0
