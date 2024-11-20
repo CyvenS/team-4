@@ -9,9 +9,6 @@ public class Team04EnemyLogic : MonoBehaviour
 
     [SerializeField] private float enemySpeed = 1f;
 
-    private bool hasHitPlayer = false;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +28,8 @@ public class Team04EnemyLogic : MonoBehaviour
         transform.position += direction * enemySpeed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        hasHitPlayer = true;
-
-        if(hasHitPlayer)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

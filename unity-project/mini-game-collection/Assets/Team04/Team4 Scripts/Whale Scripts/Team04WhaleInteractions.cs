@@ -24,7 +24,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            SetupPosition();
+            //SetupPosition();
 
             if (startingPos.Length > 0)
             {
@@ -50,7 +50,7 @@ namespace MiniGameCollection.Games2024.Team04
         {
             currentPos = transform.position;
             Vector2 direction = (targetPosition - currentPos).normalized;
-            transform.position += (Vector3)direction * whaleSpeed;
+            transform.position += (Vector3)direction * whaleSpeed * Time.deltaTime;
         }
 
         // Timer for controlling movement and despawning
