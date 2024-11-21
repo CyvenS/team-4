@@ -21,10 +21,18 @@ public class Team04Bullet : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Bulletproof")
+        if (collision.gameObject.name == "Team04Player1" || collision.gameObject.name == "Team04Player1")
         {
-            Destroy(gameObject);
+            //health?
+        }
+        else if (collision.gameObject.name == "Team04Walltop")
+        {
+            //just dont do anythin
+        }
+        else
+        {
             Destroy(collision.gameObject);
         }
+        Destroy(gameObject);
     }
 }
