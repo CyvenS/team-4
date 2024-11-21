@@ -148,11 +148,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 71520205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1faa4f27d37a01149bed5d2d349e2b61, type: 3}
+  m_Script: {fileID: 11500000, guid: 17fc6a0c4b73008488ff18e21813ad88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Player1: {fileID: 1967666415}
+  Player2: {fileID: 1140188633}
   stickCurrent: 0
   stickLast: 0
   rotateCurrent: 0
@@ -551,9 +551,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 639316010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3552b26d7fd22bc48b80e3be1b5d8be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whale: {fileID: 0}
+  timeUntilSpawn: 10
+  timeUntilDespawn: 20
 --- !u!1 &639316010
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,12 +569,12 @@ GameObject:
   - component: {fileID: 406515987}
   - component: {fileID: 406515988}
   m_Layer: 0
-  m_Name: 
+  m_Name: 2024-team04-WhaleSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &639316011
 Rigidbody2D:
   serializedVersion: 4
@@ -891,6 +894,12 @@ MonoBehaviour:
   enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
+--- !u!1 &1140188633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4932664474091817082, guid: 2e706a77b27da8b4cb701c9237be862b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6924787745405266656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181855575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1676,38 @@ MonoBehaviour:
   enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
+--- !u!1 &1967666415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5721691692654071826, guid: 9126e00f72bc1724389fd7bf9397fea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6406608995193704018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2092349016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6236612179376452795, guid: b5efdd722a379e64992a548cbc298ac3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7139716826513546061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2092349022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092349016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86267d1e664165b41977499a0a700d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whaleSpeed: 5
+  startingPos: []
+  targetPos: []
+  timeUntilAction: 10
+  timeUntilDespawn: 10
+  isDestroyed: 0
+  warningIcons: []
+  warningIconPositions: []
 --- !u!1 &2134156843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,7 +2313,7 @@ PrefabInstance:
     - target: {fileID: 8086502224591276605, guid: b5efdd722a379e64992a548cbc298ac3,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8400027403105346516, guid: b5efdd722a379e64992a548cbc298ac3,
         type: 3}
@@ -2314,10 +2355,15 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2611122401867381805, guid: b5efdd722a379e64992a548cbc298ac3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6236612179376452795, guid: b5efdd722a379e64992a548cbc298ac3,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2092349022}
   m_SourcePrefab: {fileID: 100100000, guid: b5efdd722a379e64992a548cbc298ac3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2327,8 +2373,8 @@ SceneRoots:
   - {fileID: 2144748550}
   - {fileID: 390175568}
   - {fileID: 71520207}
-  - {fileID: 6924787745405266656}
   - {fileID: 6406608995193704018}
+  - {fileID: 6924787745405266656}
   - {fileID: 1317013778}
   - {fileID: 1316426971}
   - {fileID: 1496810419}
