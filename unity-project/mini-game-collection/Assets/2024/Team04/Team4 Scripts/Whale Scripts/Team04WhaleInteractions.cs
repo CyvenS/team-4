@@ -24,7 +24,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            //SetupPosition();
+            SetupPosition();
 
             if (startingPos.Length > 0)
             {
@@ -87,16 +87,20 @@ namespace MiniGameCollection.Games2024.Team04
             //THis was if we needed to setup positions manually
             startingPos = new Vector2[]
             {
-            new Vector2(-129.44f, 35f),
-            new Vector2(38.4f, 134.2f),
-            new Vector2(135f, 134.2f),
-            new Vector2(135f, -61.6f)
+            new Vector2(-21.7f, 13.3f),
+
+            new Vector2(24.8f, 14.5f),
+
+            new Vector2(-11.6f, 18.8f),
+
+            new Vector2(10.4f, -16.54f)
             };
 
             targetPos = new Vector2[]
             {
-            new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-            new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
+            new Vector2(25.1f, -14.9f), new Vector2(-26.2f, -13.6f),
+
+            new Vector2(-11.6f, -16.54f), new Vector2(10.4f, 15.9f)
             };
         }
 
