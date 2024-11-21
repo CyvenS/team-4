@@ -43,6 +43,10 @@ namespace MiniGameCollection.Games2024.Team04
         {
             Destroy(gameObject);
         }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            Destroy(gameObject);
+        }
     }
 }
 
