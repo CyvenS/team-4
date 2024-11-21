@@ -10,7 +10,7 @@ namespace MiniGameCollection.Games2024.Team04
         public GameObject player1;
         public GameObject player2;
 
-        [SerializeField] private float enemySpeed = 1f;
+        [SerializeField] private float enemySpeed = (float)0.1;
         [SerializeField] private int PlayerID;
 
         // Start is called before the first frame update
@@ -18,31 +18,28 @@ namespace MiniGameCollection.Games2024.Team04
         {
             int randomNum = Random.Range(1, 3);
             PlayerID = randomNum;
+            player1 = GameObject.Find("2024-team04-player1");
+            player2 = GameObject.Find("2024-team04-player2");
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            TrackPlayers();
-        }
-
-        void TrackPlayers()
-        {
             if (PlayerID == 1)
             {
-                Vector3 direction1 = (player1.transform.position - transform.position).normalized;
-                transform.position += direction1 * enemySpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, player1.transform.position, 0.01f);
             }
 
             if (PlayerID == 2)
             {
-                Vector3 direction2 = (player2.transform.position - transform.position).normalized;
-                transform.position += direction2 * enemySpeed * Time.deltaTime;
+                
+                transform.position = Vector3.MoveTowards(transform.position, player2.transform.position, 0.01f);
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             Destroy(gameObject);
         }
