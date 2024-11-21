@@ -26,9 +26,8 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            countdown = 60;
+            countdown = 120;
             PickWhale();
-            CurrentWarning.GetComponent<SpriteRenderer>().enabled = false;
             wait = -1;
         }
 
@@ -55,7 +54,7 @@ namespace MiniGameCollection.Games2024.Team04
                 CurrentWhale.GetComponent<Rigidbody2D>().velocity = CurrentWhale.transform.right * whaleSpeed;
                 CurrentWhale.transform.position = returnSpawn;
                 PickWhale();
-                countdown = Random.Range(600, 2400);
+                countdown = Random.Range(600, 1200);
             }
 
             if (pickWhale == 1 || pickWhale == 2)

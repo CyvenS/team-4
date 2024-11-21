@@ -10,10 +10,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            if (gameObject.GetComponent<Rigidbody2D>().velocity.x != 0 || gameObject.GetComponent<Rigidbody2D>().velocity.y != 0)
-            {
-                Destroy(gameObject, 2);
-            }
+
         }
 
         // Update is called once per frame
@@ -37,10 +34,12 @@ namespace MiniGameCollection.Games2024.Team04
                 Destroy(collision.gameObject);
             }
             Destroy(gameObject);
+            
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Destroy(gameObject);
+            
         }
     }
 }

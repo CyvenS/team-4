@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace MiniGameCollection.Games2024.Team04
@@ -39,10 +40,11 @@ namespace MiniGameCollection.Games2024.Team04
 
         void SpawnBullet(GameObject ParentShrimp)
         {
-            GameObject bulletNow = Instantiate(Bullet, ParentShrimp.transform.position + ParentShrimp.transform.up * 1, ParentShrimp.transform.rotation);
+            GameObject bulletNow = Instantiate(Bullet, ParentShrimp.transform.position + ParentShrimp.transform.up * 3, ParentShrimp.transform.rotation);
 
             bulletNow.GetComponent<Rigidbody2D>().velocity = bulletNow.transform.up * 8;
             bulletNow.GetComponent<Rigidbody2D>().velocity += ParentShrimp.GetComponent<Rigidbody2D>().velocity;
+
             bulletNow.GetComponent<SpriteRenderer>().color = ParentShrimp.GetComponent<SpriteRenderer>().color;
 
             ParentShrimp.GetComponent<Rigidbody2D>().velocity = ParentShrimp.transform.up * -4;
