@@ -17,6 +17,7 @@ public class DeathHandler : MonoBehaviour
     {
         if (playerWin.activeSelf)
         {
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.transform.position = new Vector3(0, 0, -6);
             gameObject.transform.localScale = new Vector3(2, 2, gameObject.transform.localScale.z);
             
