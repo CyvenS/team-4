@@ -337,12 +337,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 217634592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &390175566
@@ -711,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880061670}
   - component: {fileID: 880061671}
-  - component: {fileID: 880061673}
+  - component: {fileID: 880061672}
   m_Layer: 0
   m_Name: 2024-team04-spawner
   m_TagString: Untagged
@@ -779,7 +779,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.9629664}
   m_EdgeRadius: 0
---- !u!114 &880061673
+--- !u!114 &880061672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -788,12 +788,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 880061669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &1124408791
@@ -883,12 +883,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124408791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &1181855575
@@ -978,12 +978,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181855575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &1257283385
@@ -1480,12 +1480,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1376223958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &1496810417
@@ -1659,12 +1659,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722986940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &2134156843
@@ -1754,12 +1754,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134156843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edfe78cdfb8c9a48a1d481cef4ddc23, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7cd616d88e6b3419d6ba8a2cdfe3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerPrefab: {fileID: 4399717968439475063, guid: 199ec5a0a04268447a355286956a242b,
+  enemySpawnerPrefab: {fileID: 6676949911268941475, guid: 7b9e2e81f83462c409c890a10ee7ca3c,
     type: 3}
-  enemySpawnerInterval: 2
+  enemySpawnerInterval: 0
   minTimer: 2
   maxTimer: 10
 --- !u!1 &2144748547
