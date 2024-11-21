@@ -24,7 +24,7 @@ namespace MiniGameCollection.Games2024.Team04
         // Start is called before the first frame update
         void Start()
         {
-            //SetupPosition();
+            SetupPosition();
 
             if (startingPos.Length > 0)
             {
@@ -34,8 +34,8 @@ namespace MiniGameCollection.Games2024.Team04
                 transform.position = startingPos[randomIndex];
                 targetPosition = targetPos[randomIndex];
 
-                // Trigger the warning for the spawn position
-                TriggerWarning(randomIndex);
+                //// Trigger the warning for the spawn position
+                //TriggerWarning(randomIndex);
             }
         }
 
@@ -75,8 +75,8 @@ namespace MiniGameCollection.Games2024.Team04
                     transform.position = startingPos[randomIndex];
                     targetPosition = targetPos[randomIndex];
 
-                    // Trigger the warning for the new spawn position
-                    TriggerWarning(randomIndex);
+                    //// Trigger the warning for the new spawn position
+                    //TriggerWarning(randomIndex);
                 }
             }
         }
@@ -87,49 +87,53 @@ namespace MiniGameCollection.Games2024.Team04
             //THis was if we needed to setup positions manually
             startingPos = new Vector2[]
             {
-            new Vector2(-129.44f, 35f),
-            new Vector2(38.4f, 134.2f),
-            new Vector2(135f, 134.2f),
-            new Vector2(135f, -61.6f)
+            new Vector2(-21.7f, 13.3f),
+
+            new Vector2(24.8f, 14.5f),
+
+            new Vector2(-11.6f, 18.8f),
+
+            new Vector2(10.4f, -16.54f)
             };
 
             targetPos = new Vector2[]
             {
-            new Vector2(128.24f, 35f), new Vector2(38.4f, -126f),
-            new Vector2(-135f, -134.2f), new Vector2(-130.5f, -61.6f)
+            new Vector2(25.1f, -14.9f), new Vector2(-26.2f, -13.6f),
+
+            new Vector2(-11.6f, -16.54f), new Vector2(10.4f, 15.9f)
             };
         }
 
-        // Triggers a warning icon at the specific position
-        private void TriggerWarning(int index)
-        {
-            // Disable all warning icons
-            foreach (var icon in warningIcons)
-            {
-                icon.SetActive(false);
-            }
+        //// Triggers a warning icon at the specific position
+        //private void TriggerWarning(int index)
+        //{
+        //    // Disable all warning icons
+        //    foreach (var icon in warningIcons)
+        //    {
+        //        icon.SetActive(false);
+        //    }
 
-            // Activate the correct warning icon and position it
-            if (index >= 0 && index < warningIcons.Length)
-            {
-                warningIcons[index].SetActive(true);
-                warningIcons[index].transform.position = warningIconPositions[index];
-            }
-            else
-            {
-                Debug.LogWarning("Invalid index for warning icon.");
-            }
-        }
+        //    // Activate the correct warning icon and position it
+        //    if (index >= 0 && index < warningIcons.Length)
+        //    {
+        //        warningIcons[index].SetActive(true);
+        //        warningIcons[index].transform.position = warningIconPositions[index];
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning("Invalid index for warning icon.");
+        //    }
+        //}
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            // If the whale hits any game object in its path
-            if (collision != null)
-            {
-                if (collision.gameObject == GameObject.Find("Team04Player1"))
+        //private void OnCollisionEnter2D(Collision2D collision)
+        //{
+        //    // If the whale hits any game object in its path
+        //    if (collision != null)
+        //    {
+        //        if (collision.gameObject == GameObject.Find("Team04Player1"))
 
-                    Destroy(collision.gameObject); // Destroy the other game objects
-            }
-        }
+        //            Destroy(collision.gameObject); // Destroy the other game objects
+        //    }
+        //}
     }
 }
